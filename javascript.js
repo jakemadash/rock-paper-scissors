@@ -29,14 +29,15 @@ function getPlayerChoice() {
     else choice = prompt('Please enter valid choice');
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+let playerSelection = getPlayerChoice();
+let computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
 
+    // Create variable to store result message
     let result;
 
+    // Determine and announce result based on player and computer selections
     switch (playerSelection) {
         case 'rock':
             if (computerSelection === 'rock') {
