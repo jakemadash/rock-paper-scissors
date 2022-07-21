@@ -21,24 +21,24 @@ function getPlayerChoice() {
     let choice = prompt('Enter your choice');
     choice = choice.toLowerCase();
     
-    // Check for valid selection
+    // Check for valid selection and reprompt
     while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors') {
         choice = prompt('Please enter valid choice');
         choice = choice.toLowerCase();
 }
-    // Reprompt if selection invalid
     return choice;
 }
 
 function playRound(playerSelection, computerSelection) {
 
+    // Generate new choices
     playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
 
     // Create variable to store result message
     let result;
 
-    // Determine and announce result based on player and computer selections
+    // Determine and announce result
     switch (playerSelection) {
         case 'rock':
             if (computerSelection === 'rock') {
@@ -80,9 +80,11 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
 
+    // Set scores to 0
     let player = 0;
     let computer = 0;
 
+    // Play 5 rounds and keep score
     for (let i = 0; i < 5; i++) {
         let result = playRound();
         console.log(result);
@@ -95,13 +97,14 @@ function game() {
         }
     }
 
+    // Print results
     if (player > computer) {
-        console.log(`You won! The final score was ${player}-${computer}`);
+        console.log('\n', `You won! The final score was ${player}-${computer}`);
     }
     else if (computer > player) {
-        console.log(`You lost! The final score was ${player}-${computer}`);
+        console.log('\n', `You lost! The final score was ${player}-${computer}`);
     }
-    else console.log('You tied!')
+    else console.log('\n', `You tied with the computer!`);
 }
 
 game ();
