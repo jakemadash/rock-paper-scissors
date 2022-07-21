@@ -29,10 +29,10 @@ function getPlayerChoice() {
     else choice = prompt('Please enter valid choice');
 }
 
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
-
 function playRound(playerSelection, computerSelection) {
+
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
 
     // Create variable to store result message
     let result;
@@ -75,22 +75,25 @@ function playRound(playerSelection, computerSelection) {
             else result = 'You win! Scissors beats paper'
             return result;
     }
-    return;
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
 
-        let player = 0;
-        let computer = 0;
+    let player = 0;
+    let computer = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let result = playRound();
+        console.log(result);
+        
         if (result.includes('win')) {
             player++;
         }
         else if (result.includes('lose')) {
             computer++;
         }
+    }
+
     if (player > computer) {
         console.log(`You won! The final score was ${player}-${computer}`);
     }
@@ -98,5 +101,6 @@ function game() {
         console.log(`You lost! The final score was ${player}-${computer}`);
     }
     else console.log('You tied!')
-    }
 }
+
+game ();
