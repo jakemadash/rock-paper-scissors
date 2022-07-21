@@ -15,15 +15,17 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     let choice = prompt('Enter your choice');
-
-    while (choice.toLowerCase() !== 'rock' | 'paper' | 'scissors') {
-        let choice = prompt('Please enter valid choice');
+    choice = choice.toLowerCase();
+    console.log(choice);
+    if ( choice === 'rock' | choice === 'paper' | choice === 'scissors') {
+        return choice;
 }
+    else choice = prompt('Please enter valid choice');
 }
 
+let playerSelection = getPlayerChoice();
 let computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
-    let playerSelection = prompt('Enter your choice');
-    let computerSelection = getComputerChoice ();
+    return;
 }
