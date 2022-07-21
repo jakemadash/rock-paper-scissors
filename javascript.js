@@ -22,11 +22,12 @@ function getPlayerChoice() {
     choice = choice.toLowerCase();
     
     // Check for valid selection
-    if ( choice === 'rock' | choice === 'paper' | choice === 'scissors') {
-        return choice;
+    while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors') {
+        choice = prompt('Please enter valid choice');
+        choice = choice.toLowerCase();
 }
     // Reprompt if selection invalid
-    else choice = prompt('Please enter valid choice');
+    return choice;
 }
 
 function playRound(playerSelection, computerSelection) {
