@@ -1,6 +1,6 @@
-function getComputerChoice {
-   let choice = Math.random(math.floor() * 3);
-
+function getComputerChoice () {
+   let choice = Math.floor(Math.random() * 3);
+    console.log(choice);
    if (choice === 0) {
     choice = 'rock';
    }
@@ -11,3 +11,5 @@ function getComputerChoice {
 
    return choice;
 }
+
+console.log(getComputerChoice ());
