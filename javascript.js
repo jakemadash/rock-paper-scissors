@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
     switch (playerSelection) {
         case 'rock':
             if (computerSelection === 'rock') {
-                result = 'Tie! Play again.'
+                result = 'Tie!'
                 return result;
             }
             else if (computerSelection === 'paper') {
@@ -48,6 +48,30 @@ function playRound(playerSelection, computerSelection) {
                 return result;
             }
             else result = 'You win! Rock beats scissors'
+            return result;
+
+        case 'paper':
+            if (computerSelection === 'paper') {
+                result = 'Tie!'
+                return result;
+            }
+            else if (computerSelection === 'scissors') {
+                result = 'You lose! Scissors beats paper.'
+                return result;
+            }
+            else result = 'You win! Paper beats rock.'
+            return result;
+
+        case 'scissors':
+            if (computerSelection === 'scissors') {
+                result = 'Tie!'
+                return result;
+            }
+            else if (computerSelection === 'rock') {
+                result = 'You lose! Rock beats scissors.'
+                return result;
+            }
+            else result = 'You win! Scissors beats paper'
             return result;
     }
     return;
