@@ -78,7 +78,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+// function game() {
 
     // Set scores to 0
     let player = 0;
@@ -107,4 +107,4 @@ function game() {
     else console.log('\n', `You tied with the computer!`);
 }
 
-game ();
+// game ();
