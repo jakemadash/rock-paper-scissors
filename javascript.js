@@ -29,12 +29,18 @@ function getPlayerChoice() {
     return choice;
 }
 
-function playRound(playerSelection, computerSelection) {
+
+
+const selections = document.querySelectorAll('button');
+selections.forEach(selection => selection.addEventListener('click', function() {
+    console.log(playRound(selection.textContent));
+}));
+
+
+function playRound(playerSelection) {
 
     // Generate new choices
-    playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
-
     // Create variable to store result message
     let result;
 
@@ -78,33 +84,3 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// function game() {
-
-    // Set scores to 0
-    let player = 0;
-    let computer = 0;
-
-    // Play 5 rounds and keep score
-    for (let i = 0; i < 5; i++) {
-        let result = playRound();
-        console.log(result);
-        
-        if (result.includes('win')) {
-            player++;
-        }
-        else if (result.includes('lose')) {
-            computer++;
-        }
-    }
-
-    // Print results
-    if (player > computer) {
-        console.log('\n', `You won! The final score was ${player}-${computer}`);
-    }
-    else if (computer > player) {
-        console.log('\n', `You lost! The final score was ${player}-${computer}`);
-    }
-    else console.log('\n', `You tied with the computer!`);
-}
-
-// game ();
