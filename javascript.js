@@ -15,31 +15,17 @@ function getComputerChoice() {
    return choice.toLowerCase();
 }
 
-function getPlayerChoice() {
-
-    // Get choice and make case insensitive
-    let choice = prompt('Enter your choice');
-    choice = choice.toLowerCase();
-    
-    // Check for valid selection and reprompt
-    while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors') {
-        choice = prompt('Please enter valid choice');
-        choice = choice.toLowerCase();
-}
-    return choice;
-}
-
-
-
+// Make buttons play round against CPU
 const selections = document.querySelectorAll('button');
 selections.forEach(selection => selection.addEventListener('click', function() {
-    console.log(playRound(selection.textContent));
+    const result = document.getElementById('result');
+    result.textContent = playRound(selection.textContent);
 }));
 
 
 function playRound(playerSelection) {
 
-    // Generate new choices
+    // Generate computer choice
     computerSelection = getComputerChoice();
     // Create variable to store result message
     let result;
