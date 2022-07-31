@@ -15,13 +15,52 @@ function getComputerChoice() {
    return choice.toLowerCase();
 }
 
+let player = 0;
+let computer = 0;
+
 // Make buttons play round against CPU
 const selections = document.querySelectorAll('button');
 selections.forEach(selection => selection.addEventListener('click', function() {
     const result = document.getElementById('result');
     result.textContent = playRound(selection.textContent);
+    if (result.textContent.includes('win')) {
+        player++;
+    }
+    else if (result.textContent.includes('lose')) {
+        computer++;
+    }
+    const score = document.getElementById('score');
+    score.textContent = player + "-" + computer;
 }));
 
+function game(playerSelection) {
+
+    // Set scores to 0
+    let player = 0;
+    let computer = 0;
+
+    // Play 5 rounds and keep score
+    for (let i = 0; i < 5; i++) {
+        let result = playRound(playerSelection);
+        console.log(result);
+        
+        if (result.includes('win')) {
+            player++;
+        }
+        else if (result.includes('lose')) {
+            computer++;
+        }
+    }
+
+    // Print results
+    if (player > computer) {
+        console.log('\n', `You won! The final score was ${player}-${computer}`);
+    }
+    else if (computer > player) {
+        console.log('\n', `You lost! The final score was ${player}-${computer}`);
+    }
+    else console.log('\n', `You tied with the computer!`);
+}
 
 function playRound(playerSelection) {
 
