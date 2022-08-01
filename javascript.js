@@ -5,14 +5,14 @@ function getComputerChoice() {
 
    // Convert number to game choice
    if (choice === 0) {
-    choice = 'Rock';
+    choice = 'rock';
    }
    else if (choice === 1) {
-    choice = 'Paper';
+    choice = 'paper';
    }
-   else choice = 'Scissors';
+   else choice = 'scissors';
 
-   return choice.toLowerCase();
+   return choice;
 }
 
 let player = 0;
@@ -23,7 +23,13 @@ const selections = document.querySelectorAll('button');
 selections.forEach(selection => selection.addEventListener('click', function() {
     const result = document.getElementById('result');
     result.textContent = playRound(selection.textContent);
-    if (result.textContent.includes('win')) {
+    if (player === 5) {
+        result.textContent = `You won! Refresh to play again.`;
+    }
+    else if (computer === 5) {
+        result.textContent = `You lost! Refresh to play again.`;
+    }
+    else if (result.textContent.includes('win')) {
         player++;
     }
     else if (result.textContent.includes('lose')) {
